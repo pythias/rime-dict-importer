@@ -1,0 +1,23 @@
+<template class="task-template">
+  <section id="system-tools-section" class="section js-section u-category-system">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
+          词库操作
+        </h1>
+      </div>
+    </header>
+
+    <div class="dict">
+      <div class="dict-wrapper">
+        <button class="dict-button" id="button-tools-reload">重新载入</button>
+        <button class="dict-button" id="button-tools-settings">设置</button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/system/tools')
+    </script>
+  </section>
+</template>
