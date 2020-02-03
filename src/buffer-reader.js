@@ -36,6 +36,12 @@ class BufferReader {
     return str;
   }
 
+  nextStringUtf8(length) {
+    const str = this.buf.slice(this.pos, this.pos + length).toString('utf8');
+    this.pos += length;
+    return str;
+  }
+
   nextTrimString(length) {
     const str = this.buf.slice(this.pos, this.pos + length).toString('utf16le').split('\x00', 1)[0];
     this.pos += length;

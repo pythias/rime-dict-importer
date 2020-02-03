@@ -26,7 +26,7 @@ function handleSectionTrigger (event) {
 }
 
 function activateDefaultSection () {
-  document.getElementById('dicts-sogou').click();
+  //document.getElementById('dicts-sogou').click();
 }
 
 function showMainContent () {

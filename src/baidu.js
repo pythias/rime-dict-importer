@@ -30,22 +30,26 @@ class BAIDU {
 
   parseWords(reader) {
     const words = [];
-    while (!reader.end()) {
-      const length = reader.nextInt32LE();
-      if (length == 0) {
-        this.parseSpecialWord(reader);
-        continue;
+    try {
+      while (!reader.end()) {
+        const length = reader.nextInt32LE();
+        if (length == 0) {
+          this.parseSpecialWord(reader);
+          continue;
+        }
+        if (length > 1000) {
+          log.error('Unknown format found at %d', reader.getPostion());
+          break;
+        }
+        
+        const pinyin = [...Array(length)].map(() => SHENGMU[reader.nextInt8()] + YUNMU[reader.nextInt8()]).join(' ');
+        const word = reader.nextString(length * 2);
+        words.push({ word, pinyin });
       }
-      if (length > 1000) {
-        log.error('Unknown format found at %d', reader.getPostion());
-        break;
-      }
-      
-      const pinyin = [...Array(length)].map(() => SHENGMU[reader.nextInt8()] + YUNMU[reader.nextInt8()]).join(' ');
-      const word = reader.nextString(length * 2);
-      words.push({ word, pinyin });
+    } catch (error) {
+      log.error(error);
     }
-
+    
     return words;
   }
 

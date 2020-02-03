@@ -45,19 +45,22 @@ class QQ_V0 {
 
   parseWords(reader, pinyinTable) {
     const words = [];
-    while (!reader.end()) {
-      const wordsLength = reader.nextInt16LE();
-      const pinyinLength = reader.nextInt16LE();
-      const pinyin = [...Array(pinyinLength / 2)].map(() => pinyinTable[reader.nextInt16LE()]).join(' ');
-      for (var i = 0; i < wordsLength; i++) {
-        const wordBytes = reader.nextInt16LE();
-        const word = reader.nextString(wordBytes);
-        const extBytes = reader.nextInt16LE();
-        const ext = reader.nextBuffer(extBytes);
-        words.push({ word, pinyin });
+    try {
+      while (!reader.end()) {
+        const wordsLength = reader.nextInt16LE();
+        const pinyinLength = reader.nextInt16LE();
+        const pinyin = [...Array(pinyinLength / 2)].map(() => pinyinTable[reader.nextInt16LE()]).join(' ');
+        for (var i = 0; i < wordsLength; i++) {
+          const wordBytes = reader.nextInt16LE();
+          const word = reader.nextString(wordBytes);
+          const extBytes = reader.nextInt16LE();
+          const ext = reader.nextBuffer(extBytes);
+          words.push({ word, pinyin });
+        }
       }
+    } catch (error) {
+      log.error(error);
     }
-
     return words;
   }
 
