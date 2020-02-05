@@ -206,10 +206,12 @@ class Rime {
     }
 
     reload() {
-        const command = '/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/Squirrel --reload';
-        exec(command, (error, stdout, stderr) => { 
-            log.debug(error, stdout, stderr);
-        });
+        if (process.platform == 'darwin') {
+            const command = '/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/Squirrel --reload';
+            exec(command, (error, stdout, stderr) => { 
+                log.debug(error, stdout, stderr);
+            });
+        }
     }
 
     saveDict(dict) {
