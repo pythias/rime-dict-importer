@@ -22,7 +22,6 @@ class Rime {
         //this.loadDefaultConfig();
         this.loadLunaConfig();
         this.loadLunaDictionary();
-        log.debug(this.lunaDictionary);
     }
 
     loadDefaultConfig() {
@@ -204,7 +203,6 @@ class Rime {
             this.lunaDictionary.import_tables.splice(i, 1);
             this.saveYaml(this.lunaDictionary, this.lunaDictionayPath);
         }
-        log.debug("dict %s removed, list:%s.", dict.id, this.lunaDictionary.import_tables);
     }
 
     reload() {

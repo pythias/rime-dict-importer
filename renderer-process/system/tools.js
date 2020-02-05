@@ -54,7 +54,7 @@ function insertDict(dict, new_imported) {
             if (row.id == dict.id) {
                 exists = true;
 
-                if (old == false) {
+                if (new_imported) {
                     row.cells[2].innerHTML = dict.category;
                     row.cells[3].innerHTML = dict.source;
                     row.cells[4].innerHTML = dict.count;
