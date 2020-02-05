@@ -8,12 +8,6 @@ class dictParser {
 
     return parser.parseFile(filePath);
   }
-
-  static convert(dict) {
-    return {
-
-    }
-  }
 }
 
 module.exports = dictParser;

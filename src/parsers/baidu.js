@@ -21,7 +21,9 @@ class BAIDU {
     const words = this.parseWords(reader);
 
     return {
+      name: 'baidu',
       title: title,
+      source: '百度词库',
       category: category,
       description: description,
       words: words
@@ -58,7 +60,6 @@ class BAIDU {
     const wordLength = reader.nextInt16LE();
     const pinyin = reader.nextString(pinyinLength * 2);
     const word = reader.nextString(wordLength * 2);
-    log.debug('Special word "%s/%s" found at %d', word, pinyin, reader.getPostion());
   }
 
   parseFile(path) {

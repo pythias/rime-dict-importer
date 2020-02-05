@@ -64,4 +64,5 @@ app.on('activate', function () {
 // code. You can also put them in separate files and require them here.
 function loadMainProcess() {
   require('./main-process/dicts/import')
+  require('./main-process/system/tools')
 }

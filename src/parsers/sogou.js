@@ -31,7 +31,9 @@ class SOGOU {
     const words = this.parseWords(reader, pinyinTable)
 
     return {
+      name: 'sogou',
       title: title,
+      source: '搜狗词库',
       category: category,
       description: description,
       words: words

@@ -22,12 +22,12 @@ class QQ_V1 {
     const category = infos.find(info => info.indexOf('Type:') > -1).split(': ')[1];
     const description = infos.find(info => info.indexOf('Intro:') > -1).split(': ')[1];
     const examples = infos.find(info => info.indexOf('Example:') > -1).split(': ')[1];
-
-    log.debug('Title:%s, category:%s, description:%s, examples:%s, count:%d', title, category, description, examples, wordCount);
     const words = this.parseWords(reader, startAt, wordCount);
 
     return {
+      name: 'qq',
       title: title,
+      source: '腾讯词库',
       category: category,
       description: description,
       words: words
@@ -40,7 +40,6 @@ class QQ_V1 {
     const buffer = zip.inflateSync(zippedBytes);
     const unzipReader = new BufferReader(buffer);
     const words = this.parseUnzip(unzipReader, wordCount);
-    log.debug('Zipped size:%d, unzip size:%d, count:%d', zippedBytes.length, buffer.length, words.length);
     return words;
   }
 

@@ -20,7 +20,9 @@ class QQ_V0 {
     const words = this.parseWords(reader, pinyinTable);
 
     return {
+      name: 'qq',
       title: title,
+      source: '腾讯词库',
       category: category,
       description: description,
       words: words

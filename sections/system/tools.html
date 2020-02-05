@@ -4,15 +4,30 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-system"></use></svg>
-          词库操作
+          词库管理
         </h1>
       </div>
     </header>
 
     <div class="dict">
       <div class="dict-wrapper">
-        <button class="dict-button" id="button-tools-reload">重新载入</button>
-        <button class="dict-button" id="button-tools-settings">设置</button>
+        <table id="dict-rime-table">
+          <thead>
+            <tr>
+              <th>選擇</th>
+              <th>名稱</th>
+              <th>分類</th>
+              <th>來源</th>
+              <th>詞彙量</th>
+              <th>狀態</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+
+        <div class="dict-controls">
+          <button class="dict-button" disabled id="button-tools-set">正在加载...</button>
+        </div>
       </div>
     </div>
 
