@@ -11,12 +11,13 @@ function createWindow () {
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 1080,
-    minWidth: 680,
-    height: 840,
+    width: 960,
+    height: 720,
+    minHeight: 480,
+    minWidth: 600,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
   })
 
   // Launch fullscreen with DevTools open, usage: npm run debug
