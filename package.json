@@ -1,10 +1,10 @@
 {
   "name": "rime-dict-manager",
   "productName": "rime-dict-manager",
-  "description": "Rime词库管理",
+  "description": "中州韵词库管理",
   "keywords": [],
   "main": "./main.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "pythias",
   "scripts": {
     "start": "electron .",
