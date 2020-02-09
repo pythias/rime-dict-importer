@@ -1,0 +1,63 @@
+<template class="task-template">
+  <section id="dicts-download-section" class="section js-section u-category-media">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-media"></use></svg>
+          自动加载线上词库
+        </h1>
+        <h3>导入<code>线上</code>词库</h3>
+        <h4>选择输入法：
+          <select id="select-source">
+            <option value="sogou">搜狗输入法</option>
+            <option value="baidu">百度输入法</option>
+            <!-- <option value="qq">腾讯输入法</option> -->
+          </select>
+        </h4>
+        <h4>选择分类：
+          <select id="select-category">
+            <option value="">--请选择--</option>
+            <option value="167">城市信息</option>
+            <option value="1">自然科学</option>
+            <option value="76">社会科学</option>
+            <option value="96">工程应用</option>
+            <option value="127">农林鱼畜</option>
+            <option value="132">医学医药</option>
+            <option value="436">电子游戏</option>
+            <option value="154">艺术设计</option>
+            <option value="389">生活百科</option>
+            <option value="367">运动休闲</option>
+            <option value="31">人文科学</option>
+            <option value="403">娱乐休闲</option>
+          </select>
+          <span><small id='loader-status'></small></span>
+        </h4>
+      </div>
+    </header>
+
+    <div class="dict">
+      <div class="dict-wrapper">
+        <table id="table-page-dicts" hidden>
+          <thead>
+            <tr>
+              <th>名称</th>
+              <th>词条样例</th>
+              <th>下载数量</th>
+              <th>更新时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="dict-wrapper">
+        <div hidden id='pages-list'></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/dicts/download')
+    </script>
+  </section>
+</template>

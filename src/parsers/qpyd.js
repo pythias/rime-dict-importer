@@ -63,7 +63,7 @@ class QQ_V1 {
         words.push({ word, pinyin });
       }
     } catch (error) {
-      log.error(error);
+      log.error('QQ, invalid format, %s', error);
     }
     
     return words;

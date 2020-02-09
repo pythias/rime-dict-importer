@@ -1,20 +1,26 @@
 {
   "name": "rime-dict-manager",
-  "productName": "rime-dict-manager",
+  "productName": "Rime Dict Manager",
   "description": "中州韵词库管理",
   "keywords": [],
   "main": "./main.js",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "pythias",
   "scripts": {
     "start": "electron .",
-    "dev": "electron . --debug"
+    "dev": "electron . --debug",
+    "package": "npm-run-all package:*",
+    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/icon/app.icns",
+    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/icon/app.ico"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "electron-dl": "^3.0.0",
     "electron-log": "^2.2.17",
     "electron-settings": "^3.0.7",
     "js-yaml": "^3.13.1",
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "devtron": "^1.3.0",

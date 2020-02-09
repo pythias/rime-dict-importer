@@ -61,7 +61,7 @@ class QQ_V0 {
         }
       }
     } catch (error) {
-      log.error(error);
+      log.error('QQ, invalid format, %s', error);
     }
     return words;
   }

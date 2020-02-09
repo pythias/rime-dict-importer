@@ -222,7 +222,7 @@ class Rime {
                 log.debug('Dict %s saved', path);
             }
         } catch (e) {
-            log.error(e);
+            log.error('Dict save failed, error:%s', e);
         }
     }
 
@@ -263,7 +263,7 @@ class Rime {
                 log.debug('Yaml %s saved', path);
             }
         } catch (e) {
-            log.error(e);
+            log.error('Yaml save failed, error:%s', e);
         }
     }
 

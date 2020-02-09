@@ -34,7 +34,10 @@ ipcRenderer.on('event-dict-parse-error', (event) => {
 })
 
 ipcRenderer.on('event-dict-parse-completed', (event, dict) => {
-    var tableRef = document.getElementById("dict-table").getElementsByTagName('tbody')[0];
+    const table = document.getElementById("dict-table");
+    table.hidden = false;
+    
+    var tableRef = table.getElementsByTagName('tbody')[0];
     var row = tableRef.insertRow();
     row.dataset.dict_id = dict.id;
 

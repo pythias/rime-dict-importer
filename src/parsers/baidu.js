@@ -49,7 +49,7 @@ class BAIDU {
         words.push({ word, pinyin });
       }
     } catch (error) {
-      log.error(error);
+      log.error('Baidu, invalid format, %s', error);
     }
     
     return words;

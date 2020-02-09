@@ -63,4 +63,6 @@ typings/
 # next.js build output
 .next
 
+# Package
+out/
 rime-dict-manager-darwin-x64/
