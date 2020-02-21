@@ -65,4 +65,4 @@ typings/
 
 # Package
 out/
-rime-dict-manager-darwin-x64/
+dist/

@@ -2,6 +2,7 @@
   "name": "rime-dict-manager",
   "productName": "Rime Dict Manager",
   "description": "中州韵词库管理",
+  "license" : "GNU General Public License (GPL)",
   "keywords": [],
   "main": "./main.js",
   "version": "1.3.0",
@@ -9,9 +10,27 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron . --debug",
+    "dist": "npm-run-all dist:*",
+    "dist:win": "electron-builder --win --x64",
+    "dist:mac": "electron-builder --mac --x64",
     "package": "npm-run-all package:*",
-    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/icon/app.icns",
-    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/icon/app.ico"
+    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=build/icon.icns",
+    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=build/icon.ico"
+  },
+  "build": {
+    "appId": "com.duo.rime",
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    }
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
@@ -24,6 +43,7 @@
   },
   "devDependencies": {
     "devtron": "^1.3.0",
-    "electron": "^7.1.7"
+    "electron": "^7.1.7",
+    "electron-builder": "^22.3.2"
   }
 }
