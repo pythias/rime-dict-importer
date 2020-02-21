@@ -36,7 +36,7 @@ document.body.addEventListener('click', (event) => {
 
 ipcRenderer.on('event-dict-download-completed', (event, dict) => {
     var button = document.getElementById('button_download_' + dict.id);
-    button.textContent = "已下载，正在解析";
+    button.textContent = "正在解析";
     dictParser.parse(dict.path, (dict) => {
         button.textContent = "解析完成";
         event.sender.send('event-dict-parse-completed', dict);
@@ -83,11 +83,11 @@ function initPages(container, info) {
         return;
     }
 
-    container.insertAdjacentHTML('beforeend', '<button' + (info.page == 1 ? 'disabled' : '') + ' data-type="loader-page" data-page="' + (info.page - 1) + '">上一页</button>');
+    container.insertAdjacentHTML('beforeend', '<button' + (info.page == 1 ? ' disabled' : '') + ' class="small-button" data-type="loader-page" data-page="' + (info.page - 1) + '">上一页</button>');
     
     //P1
     if (info.page >= 5) {
-        container.insertAdjacentHTML('beforeend', '<button data-type="loader-page" data-page="1">1</button>');
+        container.insertAdjacentHTML('beforeend', '<button class="small-button" data-type="loader-page" data-page="1">1</button>');
         if (info.page != 5) {
             container.insertAdjacentHTML('beforeend', '<span>...</span>');
         }
@@ -99,7 +99,7 @@ function initPages(container, info) {
             continue;
         }
 
-        container.insertAdjacentHTML('beforeend', '<button' + (info.page == i ? 'disabled' : '') + ' data-type="loader-page" data-page="' + i + '">' + i + '</button>');
+        container.insertAdjacentHTML('beforeend', '<button' + (info.page == i ? ' disabled' : '') + ' class="small-button" data-type="loader-page" data-page="' + i + '">' + i + '</button>');
     }
 
     //P3
@@ -107,10 +107,10 @@ function initPages(container, info) {
         if (info.page != (info.count - 4)) {
             container.insertAdjacentHTML('beforeend', '<span>...</span>');
         }
-        container.insertAdjacentHTML('beforeend', '<button data-type="loader-page" data-page="' + info.count + '">' + info.count + '</button>');
+        container.insertAdjacentHTML('beforeend', '<button class="small-button" data-type="loader-page" data-page="' + info.count + '">' + info.count + '</button>');
     }
 
-    container.insertAdjacentHTML('beforeend', '<button' + (info.page == info.count ? 'disabled' : '') + ' data-type="loader-page" data-page="' + (info.page + 1) + '">下一页</button>');
+    container.insertAdjacentHTML('beforeend', '<button' + (info.page == info.count ? ' disabled' : '') + ' class="small-button" data-type="loader-page" data-page="' + (info.page + 1) + '">下一页</button>');
 }
 
 function resetTable(table) {
@@ -132,7 +132,7 @@ function insertDict(table, dict) {
     var cell = row.insertCell();
     cell.innerHTML = dict.updatedAt;
     var cell = row.insertCell();
-    cell.innerHTML = '<button id="button_download_' + dict.id + '" data-type="loader-download" data-id="' + dict.id + '" data-url="' + dict.url + '">下载</button>';
+    cell.innerHTML = '<button class="small-button" style="width:90px;" id="button_download_' + dict.id + '" data-type="loader-download" data-id="' + dict.id + '" data-url="' + dict.url + '">下载</button>';
 }
 
 function loadDicts(source, category, page) {

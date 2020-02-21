@@ -13,7 +13,7 @@ class Rime {
             this.lunaPinyinPath = this.path + "/luna_pinyin.custom.yaml";
             this.lunaDictionayPath = this.path + "/luna_pinyin.duo.dict.yaml";
         } else {
-            this.path = "%APPDATA%\\Rime";
+            this.path = process.env['APPDATA'] + "\\Rime";
             this.defaultConfigPath = this.path + "\\default.custom.yaml";
             this.lunaPinyinPath = this.path + "\\luna_pinyin.custom.yaml";
             this.lunaDictionayPath = this.path + "\\luna_pinyin.duo.dict.yaml";

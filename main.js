@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu, electron } = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -37,6 +37,8 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null
     });
+
+    initMenu();
 }
 
 // This method will be called when Electron has finished
@@ -67,4 +69,26 @@ function loadMainProcess() {
     require('./main-process/dicts/import')
     require('./main-process/dicts/download')
     require('./main-process/system/rime')
+}
+
+function initMenu() {
+    if (process.platform === 'darwin') {
+        let template = [{
+            label: app.getName(),
+            submenu: [
+                {
+                    label: '退出',
+                    role: 'quit',
+                    accelerator: 'CmdOrCtrl+Q',
+                    click() {
+                        app.quit();
+                    }
+                }
+            ]
+        }];
+        const menu = Menu.buildFromTemplate(template);
+        Menu.setApplicationMenu(menu);
+    } else {
+        Menu.setApplicationMenu(null);
+    }
 }

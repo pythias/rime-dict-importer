@@ -1,5 +1,6 @@
 const { ipcRenderer } = require('electron');
 const buttonSet = document.getElementById('button-tools-set');
+const checkboxSelect = document.getElementById('checkbox-tools-select');
 const log = require('electron-log');
 const { imes } = require('../../src/parsers/extensions');
 
@@ -11,6 +12,20 @@ const STATUS_CLOSED = '待启用';
 var dicts = {};
 
 ipcRenderer.send("event-tools-rime-preload");
+
+checkboxSelect.addEventListener("change", (e) => {
+    const checked = e.target.checked;
+    const tableRef = document.getElementById("dict-rime-table").getElementsByTagName('tbody')[0];
+
+    if (!tableRef.rows) {
+        return;
+    }
+
+    Array.prototype.forEach.call(tableRef.rows, (row) => {
+        row.cells[0].innerHTML = "<input type=\"checkbox\"" + (checked ? "checked" : "") + " name=\"dicts-selected\" value=\"" + row.id + "\">";
+    });
+
+});
 
 buttonSet.addEventListener("click", (e) => {
     var tableRef = document.getElementById("dict-rime-table").getElementsByTagName('tbody')[0];

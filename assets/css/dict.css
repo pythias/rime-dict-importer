@@ -28,7 +28,7 @@ tr:nth-child(even) {
 
 .dict-wrapper {
   position: relative;
-  max-width: 740px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -39,7 +39,7 @@ tr:nth-child(even) {
   align-items: center;
 }
 
-.dict-button {
+.large-button {
   align-self: flex-start;
   margin-right: 1em;
   border: 2px solid;
@@ -50,12 +50,41 @@ tr:nth-child(even) {
   color: inherit;
   background-color: transparent;
 }
-.dict-button:focus {
+.large-button:focus {
   outline: none;
   background-color: white;
 }
-.dict-button:active {
+.large-button:active {
   border-color: var(--color-border);
+}
+.large-button:disabled {
+  outline: none;
+  background-color: #ccc;
+  color: grey;
+}
+
+.small-button {
+  align-self: flex-start;
+  margin-right: 0.6em;
+  border: 1px solid;
+  border-radius: 2px;
+  font: inherit;
+  font-size: 0.8em;
+  padding: .2em 0.8em;
+  color: inherit;
+  background-color: transparent;
+}
+.small-button:focus {
+  outline: none;
+  background-color: white;
+}
+.small-button:active {
+  border-color: var(--color-border);
+}
+.small-button:disabled {
+  outline: none;
+  background-color: #ccc;
+  color: grey;
 }
 
 .dict-response {
@@ -71,7 +100,7 @@ tr:nth-child(even) {
 .disappear {
   opacity: 0;
 }
-.dict-button.smooth-disappear:focus {
+.large-button.smooth-disappear:focus {
   outline: inherit;
   border-color: inherit;
   background-color: inherit;
