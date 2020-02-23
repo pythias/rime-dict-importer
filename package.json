@@ -2,7 +2,11 @@
   "name": "rime-dict-manager",
   "productName": "Rime Dict Manager",
   "description": "中州韵词库管理",
-  "license" : "GNU General Public License (GPL)",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pythias/rime-dict-importer.git"
+  },
   "keywords": [],
   "main": "./main.js",
   "version": "1.3.0",
