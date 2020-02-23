@@ -34,7 +34,7 @@ function createWindow() {
         mainWindow = null
     });
 
-    mainWindow.on('moved', function(e) {
+    mainWindow.on('move', function(e) {
         saveState();
     });
 
@@ -90,8 +90,10 @@ function saveState() {
     if (mainWindow == null) {
         return;
     }
+
     store.set("state.position", mainWindow.getPosition());
     store.set("state.size", mainWindow.getSize());
+    store.save();
 }
 
 function restoreState() {
@@ -101,6 +103,8 @@ function restoreState() {
 
     const position = store.get("state.position");
     const size = store.get("state.size");
+    log.debug(position);
+    log.debug(size);
     if (position == null || size == null) {
         return;
     }
