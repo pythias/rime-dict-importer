@@ -46,10 +46,12 @@
     "electron-settings": "^3.0.7",
     "js-yaml": "^3.13.1",
     "md5": "^2.2.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "minimist": ">=1.2.2"
   },
   "devDependencies": {
-    "electron": "^7.1.7",
-    "electron-builder": "^22.3.2"
+    "electron": "^8.1.1",
+    "electron-builder": "^22.3.2",
+    "minimist": ">=1.2.2"
   }
 }

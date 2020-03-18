@@ -103,8 +103,6 @@ function restoreState() {
 
     const position = store.get("state.position");
     const size = store.get("state.size");
-    log.debug(position);
-    log.debug(size);
     if (position == null || size == null) {
         return;
     }

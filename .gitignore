@@ -66,3 +66,4 @@ typings/
 # Package
 out/
 dist/
+package-lock.json
